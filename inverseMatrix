@@ -1,0 +1,42 @@
+#This R code is designed to inveese a matrix
+#As used in the example use the <<- operation to assign the matrix
+
+makeMatrix <- function(a = Matrix ()) {
+
+#Next the function has to make a special matirix that, could set, get, the matrix and inverse.
+#Set inverse to null to start the code
+
+  i = NULL
+  set = function (b) {
+    a <<- b
+    i <<- NULL
+  }
+
+    get <- function() a
+      setInverse <- function(inverse) i <<- inverse
+      getInverse <- function() i
+      list (set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+      }
+      
+cacheInverse <- function(x, ....) {
+  i = x$geti
+  
+  if (ifis.null(i)){
+    message ("getting cached data")
+    return(i)
+    }
+    
+    mat.data <- x$get()
+    inv <- solve(mat.data, ...)
+    
+    x$seti(i)
+    
+    return(i)
+    
+    }
+    
+      
+      
+      
+      
+      
